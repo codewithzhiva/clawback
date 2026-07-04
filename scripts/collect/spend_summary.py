@@ -16,6 +16,7 @@ import sys
 
 import boto3
 from botocore.config import Config
+from botocore.exceptions import ClientError
 
 BOTO_CFG = Config(retries={"max_attempts": 8, "mode": "adaptive"})
 
@@ -38,12 +39,22 @@ def main():
     ce = session.client("ce", region_name="us-east-1", config=BOTO_CFG)
     start, end = month_range()
 
-    resp = ce.get_cost_and_usage(
-        TimePeriod={"Start": start, "End": end},
-        Granularity="MONTHLY",
-        Metrics=["UnblendedCost"],
-        GroupBy=[{"Type": "DIMENSION", "Key": "SERVICE"}],
-    )
+    try:
+        resp = ce.get_cost_and_usage(
+            TimePeriod={"Start": start, "End": end},
+            Granularity="MONTHLY",
+            Metrics=["UnblendedCost"],
+            GroupBy=[{"Type": "DIMENSION", "Key": "SERVICE"}],
+        )
+    except ClientError as e:
+        code = e.response["Error"]["Code"]
+        msg = e.response["Error"].get("Message", "")
+        if code in ("AccessDeniedException", "AccessDenied", "DataUnavailableException"):
+            sys.exit(f"Cost Explorer unavailable ({code}: {msg}). "
+                     "If never enabled on this account: Billing console → Cost Explorer "
+                     "→ enable, data appears within 24h. Report will render without "
+                     "the spend-context header.")
+        raise
 
     months = []
     by_service = {}
