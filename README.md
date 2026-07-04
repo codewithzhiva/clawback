@@ -1,8 +1,8 @@
-# CloudCost
+# Clawback
 
 **The open-source AWS cost audit that found $370K/year of savings on a Fortune-500 account.**
 
-CloudCost is a [Claude Code](https://claude.com/claude-code) skill that audits your AWS
+Clawback is a [Claude Code](https://claude.com/claude-code) skill that audits your AWS
 account for waste using a 12-item methodology built from real FinOps work — orphaned
 resources, right-sizing, commitment coverage, non-prod scheduling, storage tiering,
 data-transfer leaks — and generates a ranked savings report with evidence and
@@ -13,7 +13,7 @@ This finds it.
 
 ## Read-only, by design
 
-CloudCost **never modifies your infrastructure.**
+Clawback **never modifies your infrastructure.**
 
 - Collectors only call `Describe*` / `List*` / `Get*` APIs — enforced by a CI check
   ([scripts/check_readonly.sh](scripts/check_readonly.sh)) that fails the build if a
@@ -25,7 +25,7 @@ CloudCost **never modifies your infrastructure.**
 ## Install
 
 ```bash
-git clone https://github.com/codewithzhiva/cloudcost ~/.claude/skills/cloudcost
+git clone https://github.com/codewithzhiva/clawback ~/.claude/skills/clawback
 pip install boto3
 ```
 

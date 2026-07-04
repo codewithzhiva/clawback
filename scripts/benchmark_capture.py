@@ -17,7 +17,7 @@ import pathlib
 import statistics
 import sys
 
-DEFAULT_DATASET = pathlib.Path.home() / ".cloudcost" / "benchmarks-raw.jsonl"
+DEFAULT_DATASET = pathlib.Path.home() / ".clawback" / "benchmarks-raw.jsonl"
 BENCHMARKS_OUT = pathlib.Path(__file__).resolve().parents[1] / "reference" / "benchmarks.json"
 MIN_AUDITS_TO_PUBLISH = 10
 

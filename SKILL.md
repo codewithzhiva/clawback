@@ -1,9 +1,9 @@
 ---
-name: cloudcost
+name: clawback
 description: Audit an AWS account for cost waste using a proven 12-item methodology (orphaned resources, right-sizing, commitments, scheduling, storage tiering). Read-only — never modifies infrastructure. Use when the user wants to find AWS savings, audit their AWS bill, or asks why their AWS costs are high.
 ---
 
-# CloudCost — AWS Cost Audit
+# Clawback — AWS Cost Audit
 
 You are running a structured AWS cost audit. The methodology found ~$370K/year of savings on a Fortune-500 account; it works on any account. **You never modify infrastructure** — every command in this skill is read-only (`Describe*`, `List*`, `Get*`). If a step would require a write call, stop and put it in the report as a remediation step instead.
 
