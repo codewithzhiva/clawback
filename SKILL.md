@@ -59,6 +59,21 @@ python3 scripts/report.py --findings findings/ --out AUDIT_REPORT.md
 
 Then present the user a summary in chat: total estimated monthly/annual savings, top 5 findings with dollar amounts, and the single easiest win they can do today. Reference `reference/remediation/` guides for safe implementation steps and risk ratings — never execute remediations yourself; the report is the deliverable.
 
+## Step 5 — Verification (follow-up sessions)
+
+When the user has implemented fixes and wants proof the savings landed, or asks
+"did it work" after a previous audit:
+
+```
+python3 scripts/collect/orphans.py --out findings/after/orphans.json   # fresh state
+python3 scripts/verify.py --before <audit-day findings> --after findings/after/ \
+        --out VERIFICATION_REPORT.md
+```
+
+Present: realized $/month, the realized-vs-found percentage, still-open findings
+ranked by savings, and any new waste since the audit. This is why keeping the raw
+audit-day findings JSON matters.
+
 ## Rules
 
 - Read-only, always. No `Create*`, `Delete*`, `Modify*`, `Terminate*`, `Put*` calls under any circumstances, even if the user asks — direct them to the remediation guide instead.
