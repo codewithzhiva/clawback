@@ -120,7 +120,8 @@ def ri_utilization(ce, start, end):
     resp = ce.get_reservation_utilization(TimePeriod={"Start": start, "End": end})
     total = resp.get("Total", {})
     pct = float(total.get("UtilizationPercentage", 100) or 100)
-    if pct >= UTILIZATION_FLOOR:
+    purchased = float(total.get("PurchasedHours", 0) or 0)
+    if pct >= UTILIZATION_FLOOR or purchased == 0:  # 0/0 on RI-less accounts reads as 0%
         return findings
     unused_hours = total.get("UnusedHours", "0")
     net_savings = float(total.get("NetRISavings", 0) or 0)
