@@ -69,6 +69,7 @@ python3 scripts/collect/spend_summary.py --out findings/spend.json      # bill c
 python3 scripts/collect/orphans.py --out findings/orphans.json          # all regions
 python3 scripts/collect/commitments.py --out findings/commitments.json  # SP/RI gaps
 python3 scripts/report.py --findings findings/ --out AUDIT_REPORT.md
+python3 scripts/report_html.py --findings findings/ --out AUDIT_REPORT.html  # email-able single file
 ```
 
 Later, prove the savings landed:

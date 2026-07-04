@@ -54,8 +54,12 @@ Record every manual finding in the same JSON schema the collectors emit (see `sc
 Generate the report:
 
 ```
-python3 scripts/report.py --findings findings/ --out AUDIT_REPORT.md
+python3 scripts/report.py --findings findings/ --out AUDIT_REPORT.md          # markdown
+python3 scripts/report_html.py --findings findings/ --out AUDIT_REPORT.html   # shareable single-file HTML
 ```
+
+Markdown for working in the terminal/repo; HTML when the user wants to share the
+report (email attachment, non-technical stakeholders) — it's fully self-contained.
 
 Then present the user a summary in chat: total estimated monthly/annual savings, top 5 findings with dollar amounts, and the single easiest win they can do today. Reference `reference/remediation/` guides for safe implementation steps and risk ratings — never execute remediations yourself; the report is the deliverable.
 

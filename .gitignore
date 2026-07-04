@@ -4,3 +4,5 @@ AUDIT_REPORT.md
 .DS_Store
 DESIGN.md
 VERIFICATION_REPORT.md
+AUDIT_REPORT.html
+.claude/launch.json
