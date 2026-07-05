@@ -18,7 +18,7 @@ from datetime import date
 
 from report import load_findings, load_spend, BENCHMARKS_FILE, BAND_BOUNDS
 
-BOOKING_URL = "https://calendly.com/shivaroopan"
+BOOKING_URL = "https://calendly.com/workwithzhiva/30min"
 REPO_URL = "https://github.com/codewithzhiva/clawback"
 
 RISK_STYLE = {

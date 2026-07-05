@@ -102,7 +102,7 @@ through your change process, and get paid a percentage of measured first-year sa
 measured by the same `verify` tooling you can read in this repo. The $370K above is my
 track record, not a projection.
 
-→ **[Book a call](https://calendly.com/shivaroopan)**
+→ **[Book a call](https://calendly.com/workwithzhiva/30min)**
 
 ## License
 

@@ -20,7 +20,7 @@ CTA_FOOTER = """
 AWS audit that found $370K/year on a Fortune-500 account.*
 
 **Found savings you don't want to implement yourself?** I do this on gain-share:
-no savings, no fee. → [book a call](https://calendly.com/shivaroopan)
+no savings, no fee. → [book a call](https://calendly.com/workwithzhiva/30min)
 """
 
 
